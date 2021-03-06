@@ -9,8 +9,8 @@ zabbix_agent_package: zabbix-agent
 zabbix_sender_package: zabbix-sender
 zabbix_get_package: zabbix-get
 zabbix_agent_package_state: present
-zabbix_agent_server:
-zabbix_agent_serveractive:
+zabbix_agent_server: #192.168.17.180
+zabbix_agent_serveractive: "{{ zabbix_agent_server }}"
 zabbix_selinux: False
 zabbix_agent_src_reinstall: True
 zabbix_agent_apt_priority:
@@ -36,7 +36,7 @@ zabbix_agent_os_family: "{{ ansible_os_family }}"
 zabbix_repo_yum:
   - name: zabbix
     description: Zabbix Official Repository - $basearch
-    baseurl: http://repo.zabbix.com/zabbix/{{ zabbix_version }}/rhel/{{ zabbix_agent_distribution_major_version }}/$basearch/
+    baseurl: https://mirrors.tuna.tsinghua.edu.cn/zabbix/zabbix/{{ zabbix_version }}/rhel/{{ zabbix_agent_distribution_major_version }}/$basearch/
     priority: 1
     gpgcheck: 0
     gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ZABBIX
@@ -113,6 +113,8 @@ zabbix_agent_timeout: 3
 zabbix_agent_include: /etc/zabbix/zabbix_agentd.d
 zabbix_agent_unsafeuserparameters: 0
 zabbix_agent_userparameters: []
+#  - name: php_fpm
+#    scripts_dir: php_fpm
 zabbix_agent_userparameters_templates_src: "userparameters"
 zabbix_agent_userparameters_scripts_src: "scripts"
 zabbix_agent_custom_scripts: false
