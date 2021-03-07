@@ -78,6 +78,7 @@
       - "{{ zabbix_agent_package }}"
       - "{{ zabbix_sender_package }}"
       - "{{ zabbix_get_package }}"
+      - python-netaddr
     state: "{{ zabbix_agent_package_state }}"
   environment:
     http_proxy: "{{ zabbix_http_proxy | default(None) | default(omit) }}"
