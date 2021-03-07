@@ -9,7 +9,7 @@ zabbix_agent_package: zabbix-agent
 zabbix_sender_package: zabbix-sender
 zabbix_get_package: zabbix-get
 zabbix_agent_package_state: present
-zabbix_agent_server: #修改成zabbix监控服务器的IP 192.168.17.180
+zabbix_agent_server: #修改成zabbix监控服务器的IP 192.168.122.180
 zabbix_agent_serveractive: "{{ zabbix_agent_server }}"
 zabbix_selinux: False
 zabbix_agent_src_reinstall: True
